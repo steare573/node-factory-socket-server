@@ -38,7 +38,7 @@ export const registerEventHandlers = (socket, broadcast) => {
       socket.emit('treeData', { factories: treeData || [] });
     } catch (err) {
       log.error('Error retrieving initial tree data', err);
-      socket.emit('error', { message: 'Unable to retrieve initial tree data', error: err });
+      socket.emit('SERVER_ERROR', { message: 'Unable to retrieve initial tree data', error: err });
     }
   });
 
@@ -54,7 +54,7 @@ export const registerEventHandlers = (socket, broadcast) => {
     } catch (err) {
       log.error(`Error regenerating children for factory(${data.id})`, err);
       socket.emit(
-        'error',
+        'SERVER_ERROR',
         {
           message: `Error regenerating children for factory(${data.id})`,
           error: err,
@@ -72,7 +72,7 @@ export const registerEventHandlers = (socket, broadcast) => {
       broadcastTreeData();
     } catch (err) {
       log.error(`Error attempting to add factory ${data.name}`, err);
-      socket.emit('error', { message: `Error attempting to add factory ${data.name}`, error: err });
+      socket.emit('SERVER_ERROR', { message: `Error attempting to add factory ${data.name}`, error: err });
     }
   });
 
@@ -90,7 +90,7 @@ export const registerEventHandlers = (socket, broadcast) => {
     } catch (err) {
       log.error(`Error attempting to delete factory ${data.id}`, err);
       socket.emit(
-        'error',
+        'SERVER_ERROR',
         {
           message: `Error attempting to delete factory ${data.id}`,
           error: err,
@@ -125,7 +125,7 @@ export const registerEventHandlers = (socket, broadcast) => {
     } catch (err) {
       log.error(`Error editing factory(${data.id})`, err);
       socket.emit(
-        'error',
+        'SERVER_ERROR',
         {
           message: `Error editing factory(${data.id})`,
           error: err,
