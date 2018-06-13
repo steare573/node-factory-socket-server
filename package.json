@@ -1,0 +1,33 @@
+{
+  "name": "node-factory-socket-server",
+  "version": "1.0.0",
+  "description": "Backend socket server for factory node applciation",
+  "author": "Sean Teare <steare573@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "build": "rm -rf ./dist && NODE_ENV=production npx babel src --out-dir dist --copy-files",
+    "dev": "npx babel-node src/index.js | bunyan",
+    "start": "NODE_ENV=production node index.js",
+    "start:dev": "NODE_ENV=development node index.js | bunyan"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "deepmerge": "^2.1.1",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10",
+    "socket.io": "^2.1.0"
+  }
+}

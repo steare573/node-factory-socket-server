@@ -1,0 +1,68 @@
+{
+  "*": {
+    "mysql": {
+      "host": "",
+      "database": "PassportFactory",
+      "username": "",
+      "password": "",
+      "port": "3306",
+      "pool": "4",
+      "dialect": "mysql",
+      "logging": false
+    },
+    "http": {
+      "port": 4000
+    },
+    "defaultValues": {
+      "dbDialect": "mysql"
+    },
+    "logger": {
+      "name": "factory-node-socket-server",
+      "level": 30
+    }
+  },
+  "development": {
+    "mysql": {
+      "host": "127.0.0.1",
+      "database": "PassportFactory",
+      "username": "",
+      "password": "",
+      "port": "3306",
+      "pool": "4",
+      "dialect": "mysql",
+      "logging": true
+    },
+    "http": {
+      "port": 4000
+    },
+    "defaultValues": {
+      "dbDialect": "mysql"
+    },
+    "logger": {
+      "name": "factory-node-socket-server",
+      "level": 10
+    }
+  },
+  "production": {
+    "mysql": {
+      "host": "",
+      "database": "PassportFactory",
+      "username": "",
+      "password": "",
+      "port": "3306",
+      "pool": "4",
+      "dialect": "mysql",
+      "logging": true
+    },
+    "http": {
+      "port": 4000
+    },
+    "defaultValues": {
+      "dbDialect": "mysql"
+    },
+    "logger": {
+      "name": "factory-node-socket-server",
+      "level": 30
+    }
+  }
+}
