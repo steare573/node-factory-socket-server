@@ -52,7 +52,7 @@
       "port": "3306",
       "pool": "4",
       "dialect": "mysql",
-      "logging": true
+      "logging": false
     },
     "http": {
       "port": 4000
