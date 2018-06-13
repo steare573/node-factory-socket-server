@@ -22,7 +22,7 @@ conf.db.port = process.env.DB_PORT || conf.db.port;
 conf.db.username = process.env.DB_USER || conf.db.username;
 conf.db.password = process.env.DB_PASSWORD || conf.db.password;
 conf.logger.level = process.env.LOG_LEVEL || conf.logger.level;
-
+conf.process = {};
 conf.process.env = process.env;
 
 // freeze so no one can alter this config accidentally
