@@ -26,7 +26,7 @@ export const registerEventHandlers = (socket, broadcast) => {
       const treeData = await models.factory.findAll();
       broadcast('treeData', { factories: treeData || [] });
     } catch (err) {
-      log.error('Error broadcasting tree data update');
+      log.error('Error broadcasting tree data update', err);
     }
   };
 
@@ -128,6 +128,26 @@ export const registerEventHandlers = (socket, broadcast) => {
         'SERVER_ERROR',
         {
           message: `Error editing factory(${data.id})`,
+          error: err,
+        },
+      );
+    }
+  });
+
+  socket.on('DELETE_ALL_FACTORIES', async () => {
+    try {
+      log.info(`Processing event DELETE_ALL_FACTORIES for socket ${socket.id}`);
+      await models.factory.destroy({
+        where: {},
+        // truncate: true
+      });
+      broadcastTreeData();
+    } catch (err) {
+      log.error('Error deleting all factories', err);
+      socket.emit(
+        'SERVER_ERROR',
+        {
+          message: 'Error deleting all factories',
           error: err,
         },
       );

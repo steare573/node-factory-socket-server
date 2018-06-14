@@ -16,7 +16,7 @@ const http = Server(app);
 const io = socketIo(http);
 
 io.on('connection', (socket) => {
-  registerEventHandlers(socket, io.emit);
+  registerEventHandlers(socket, io.emit.bind(io));
 });
 
 http.listen(config.http.port, () => {
