@@ -15,6 +15,10 @@ const app = express();
 const http = Server(app);
 const io = socketIo(http);
 
+app.get('/', (req, res) => {
+  res.send('OK');
+});
+
 io.on('connection', (socket) => {
   registerEventHandlers(socket, io.emit.bind(io));
 });

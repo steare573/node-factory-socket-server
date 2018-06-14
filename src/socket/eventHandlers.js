@@ -26,7 +26,10 @@ export const registerEventHandlers = (socket, broadcast) => {
       const treeData = await models.factory.findAll();
       broadcast('treeData', { factories: treeData || [] });
     } catch (err) {
-      log.error('Error broadcasting tree data update', err);
+      log.error({
+        msg: 'Error broadcasting tree data update',
+        err,
+      });
     }
   };
 
